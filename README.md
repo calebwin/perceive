@@ -9,7 +9,7 @@ The perceive function requires just four arguments.
 - A group of parameters
 
 In the following example, each input has three features.
-```
+```golang
 trainingInputs := [][]float32{
   []float32{-0.8, -0.7, -0.5,},
   []float32{-0.5, -0.4, -0.4,},
