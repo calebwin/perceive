@@ -56,7 +56,7 @@ perceive requires four parameters that can be fine-tuned to train the perceptron
 perceive includes the following 13 default activation functions - Heaviside, Linear, Logistic, TanH, LeCunTanH, HardTanH, Rectifier, SmoothRectifier, Logit, Gaussian, Abs, Bipolar, BipolarSigmoid.
 
 Custom activation functions can be provided as follows.
-```
+```golang
 myOutputs := perceive.Perceive(trainingInputs, trainingOutputs, myInputs, Parameters{
   []float64{0, 0, 0},
   0,
