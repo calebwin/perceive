@@ -1,5 +1,5 @@
 ## What it is
-perceive allows for easy perceptron-based deep learning in Go with a single function. perceive aims to be a lightweight solution to basic machine learning use cases
+perceive allows for easy perceptron-based machine learning in Go with a single function. perceive aims to be a lightweight solution for basic machine learning use cases.
 
 ## How to use it
 The perceive function requires just four arguments.
