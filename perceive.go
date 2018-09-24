@@ -19,28 +19,34 @@ func Perceive(trainingInputs [][]float64, trainingOutputs []float64, inputs [][]
   learningRate := parameters.learningRate
   activationFunction := parameters.activationFunction
 
-  // adjust weights and random values with training data
-  for i, trainingInput := range trainingInputs {
-    // calculate expected output of training input
-    expectedOutput := trainingOutputs[i]
+  cumulativeLearning := 0.0
 
-    // calculate actual output of training input
-    actualOuput := bias
-    for i, input := range trainingInput {
-      actualOuput += input * weights[i]
+  for cumulativeLearning < 1.0 {
+    // adjust weights and random values with training data
+    for i, trainingInput := range trainingInputs {
+      // calculate expected output of training input
+      expectedOutput := trainingOutputs[i]
+
+      // calculate actual output of training input
+      actualOuput := bias
+      for i, input := range trainingInput {
+        actualOuput += input * weights[i]
+      }
+      actualOuput = float64(activationFunction(actualOuput))
+
+      // calculate cost
+      cost := expectedOutput - actualOuput
+
+      // adjust weights based on cost
+      for i, input := range trainingInput {
+        weights[i] += input * cost * learningRate
+      }
+
+      // adjust bias based on cost
+      bias += cost * learningRate
     }
-    actualOuput = float64(activationFunction(actualOuput))
 
-    // calculate cost
-    cost := expectedOutput - actualOuput
-
-    // adjust weights based on cost
-    for i, input := range trainingInput {
-      weights[i] += input * cost * learningRate
-    }
-
-    // adjust bias based on cost
-    bias += cost * learningRate
+    cumulativeLearning += learningRate
   }
 
   outputs := []float64{}
