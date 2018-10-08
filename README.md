@@ -14,13 +14,13 @@ In the following example, each input has three features.
 ```golang
 import "github.com/calebwin/perceive"
 
-trainingInputsClass1 := [][]float64{
+trainingInputsClassA := [][]float64{
   []float64{-0.8, -0.7, -0.5,},
   []float64{-0.5, -0.4, -0.4,},
   []float64{-0.5, -0.5, -0.4,},
 }
 
-trainingInputsClass2 := [][]float64{
+trainingInputsClassB := [][]float64{
   []float64{0.0, 0.2, 0.5,},
   []float64{0.7, 0.8, 0.9,},
 }
