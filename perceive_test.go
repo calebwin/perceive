@@ -32,7 +32,7 @@ func TestBasic(t *testing.T) {
     []float64{0, 0, 0},
     0,
     0.1,
-    Heaviside,
+    3,
   })
 
   for _, myOutput := range myOutputs {

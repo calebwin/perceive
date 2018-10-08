@@ -1,38 +1,35 @@
 package perceive
 
-import (
-  "math"
-)
-
-type ActivationFunction func(x float64) (result float64)
+//type ActivationFunction func(x float64) (result float64)
 
 type Parameters struct {
   initialWeights []float64
   initialBias float64
   learningRate float64
-  activationFunction ActivationFunction
+  numEpochs int
+  //activationFunction ActivationFunction
 }
 
 func Perceive(trainingInputs [][]float64, trainingOutputs []float64, inputs [][]float64, parameters Parameters) []float64 {
   weights := parameters.initialWeights
   bias := parameters.initialBias
   learningRate := parameters.learningRate
-  activationFunction := parameters.activationFunction
+  numEpochs := parameters.numEpochs
+  activationFunction := Heaviside//parameters.activationFunction
 
-  cumulativeLearning := 0.0
-
-  for cumulativeLearning < 1.0 {
+  for numEpochs > 0 {
     // adjust weights and random values with training data
     for i, trainingInput := range trainingInputs {
       // calculate expected output of training input
       expectedOutput := trainingOutputs[i]
 
       // calculate actual output of training input
-      actualOuput := bias
+      actualOuput := 0.0
+      actualOuput += bias
       for i, input := range trainingInput {
         actualOuput += input * weights[i]
       }
-      actualOuput = float64(activationFunction(actualOuput))
+      actualOuput = activationFunction(actualOuput)
 
       // calculate cost
       cost := expectedOutput - actualOuput
@@ -46,7 +43,7 @@ func Perceive(trainingInputs [][]float64, trainingOutputs []float64, inputs [][]
       bias += cost * learningRate
     }
 
-    cumulativeLearning += learningRate
+    numEpochs--
   }
 
   outputs := []float64{}
