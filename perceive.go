@@ -1,5 +1,7 @@
 package perceive
 
+import "fmt"
+
 //type ActivationFunction func(x float64) (result float64)
 
 type Parameters struct {

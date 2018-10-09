@@ -26,7 +26,7 @@ func TestBasic(t *testing.T) {
   myOutputsClass1, myOutputsClass2 := Perceive(trainingInputsClass1, trainingInputsClass2, myInputs, Parameters{
     []float64{0, 0, 0},
     0.1,
-    3,
+    32,
   })
 
   fmt.Println("Class 1:")
