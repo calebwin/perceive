@@ -1,14 +1,11 @@
-## What it is
+# Perceive
 perceive allows for easy perceptron-based binary classification in Go with a single function. perceive aims to be a lightweight solution for basic machine learning use cases.
 
-## How to use it
 The perceive function requires just four arguments.
 - A list of inputs in the first class for training
 - A list of inputs in the second class for training
 - A list of inputs to be classified
 - A group of parameters
-
-### Basic usage
 
 In the following example, each input has three features.
 ```golang
@@ -38,7 +35,7 @@ myOutputsClassA, myOutputsClassB := perceive.Perceive(trainingInputsClassA, trai
 })
 ```
 
-### Parameters
+## Parameters
 perceive requires four parameters that can be fine-tuned to train the perceptron to yield more accurate outputs.
 - a list of initial relative weights of each input
 - a learning rate (can be set to 0.01 to start with)
